@@ -17,12 +17,16 @@ Security Tool acquired by Nvidia AI
     - see claude_config.json for example (or https://reference.garak.ai/en/latest/garak.generators.rest.html + https://docs.anthropic.com/en/api/messages)
     - or follow this video: https://www.youtube.com/watch?v=f713_sFqItY&ab_channel=EmbraceTheRed
     - set env variable: `REST_API_KEY=`
+- Change the reporting output dir
+    - By default logs are stored under ~/.local/share/garak/
+    - in garak library change `garak/resources/garak.core.yaml` to `reporting.report_dir` to set desired repo (full path)
 - Run tests
     - List all tests: `garak --list_probes`
     - Run specific test: `garak --model_type rest -G claude-config.json --probes malwaregen.Evasion --generations 2`
     - Run all tests: `garak evaluate --config claude_config.yaml`
 - Report
-    - By default logs are stored under ~/.local/share/garak/
+    - Pick out relevant tests for OWASP report
+        - `python -m garak.analyze.report_digest reports/garak.<1234>.report.jsonl owasp > report.html`
 
 
 
