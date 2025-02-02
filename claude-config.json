@@ -1,0 +1,23 @@
+{
+    "rest": {
+       "RestGenerator": {
+          "name": "claude-tester",
+          "uri": "https://api.anthropic.com/v1/messages",
+          "method": "post",
+          "headers": {
+             "x-api-key": "$KEY",
+             "anthropic-version": "2023-06-01",
+             "content-type": "application/json"
+          },
+          "req_template_json_object": {
+            "model": "claude-3-5-sonnet-20241022",
+            "max_tokens": 1024,
+            "messages": [
+                {"role": "user", "content": "$INPUT"}
+            ]
+          },
+          "response_json": true,
+          "response_json_field": "$.content[0].text"
+       }
+    }
+ }
